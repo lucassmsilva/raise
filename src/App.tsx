@@ -5,16 +5,16 @@ import {
   createBottomTabNavigator,
   BottomTabBar
 } from "@react-navigation/bottom-tabs";
-import Home from "./src/Pages/Home/Home";
-import Profile from "./src/Pages/Profile/Profile";
+import Home from "./Pages/Home/Home";
+import Profile from "./Pages/Profile/Profile";
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
+import { useDarkMode } from "./Hooks/theme";
 
 function App(): JSX.Element {
-  const isDarkMode = useColorScheme() === "dark";
+  const [darkMode, _] = useDarkMode();
 
   const backgroundStyle = {
-    flex: 1,
-    backgroundColor: isDarkMode ? "#0f172a" : "#fafaf9"
+    flex: 1
   };
 
   const Tab = createBottomTabNavigator();

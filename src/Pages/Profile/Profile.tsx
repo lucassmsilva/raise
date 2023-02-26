@@ -1,24 +1,31 @@
 import React, { useState } from "react";
 import { View } from "react-native";
-import { Button, Switch } from "react-native-paper";
+import { Switch } from "react-native-paper";
+import { useDarkMode, getTheme } from "../../Hooks/theme";
 import { TextDefault } from "../../Layout/Typography";
+import { Cabecalho, Container } from "../../Layout/Views";
 
 const Profile = () => {
-  const [dark, setDark] = useState<Boolean>(false);
-
+  const [dark, toggleDarkMode] = useDarkMode();
+  const theme = getTheme(dark);
   return (
-    <View
-      style={{
-        flexDirection: "row",
-        alignItems: "center",
-        justifyContent: "space-between",
-        margin: 8
-      }}>
-      <TextDefault> DARK MODE</TextDefault>
-      <Switch
-        value={dark}
-        onValueChange={() => setDark(prevState => !prevState)}></Switch>
-    </View>
+    <Container theme={theme}>
+      <Cabecalho titulo='Perfil' theme={theme}>
+        <></>
+      </Cabecalho>
+      <View
+        style={{
+          flexDirection: "row",
+          alignItems: "center",
+          marginTop: 16,
+          justifyContent: "space-between"
+        }}>
+        <TextDefault theme={theme}>MODO DARK</TextDefault>
+        <Switch
+          value={dark}
+          onValueChange={() => toggleDarkMode()}></Switch>
+      </View>
+    </Container>
   );
 };
 export default Profile;

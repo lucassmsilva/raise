@@ -1,17 +1,18 @@
 import React from "react";
 import { View } from "react-native";
+import { useDarkMode } from "../../Hooks/theme";
 import { PageTitle } from "../../Layout/Typography";
+import { Cabecalho, Container } from "../../Layout/Views";
 
 const Home = () => {
+  const [isDarkMode, _] = useDarkMode();
+  const theme = isDarkMode ? "dark" : "light";
   return (
-    <View
-      style={{
-        flex: 1,
-        alignItems: "center",
-        justifyContent: "center"
-      }}>
-      <PageTitle>Que haja luz!</PageTitle>
-    </View>
+    <Container theme={theme}>
+      <Cabecalho titulo='Seja bem vindo' theme={theme}>
+        <></>
+      </Cabecalho>
+    </Container>
   );
 };
 
