@@ -1,3 +1,4 @@
+import { PropsWithChildren } from "react";
 import styled from "styled-components";
 import { PageTitle } from "./Typography";
 import { getColors } from "./Colors";
@@ -19,10 +20,13 @@ export const PageHeader = styled.View`
 interface CabecalhoType {
   titulo: string;
   theme: string;
-  children: React.ReactNode | React.ReactFragment;
 }
 
-export const Cabecalho = ({ titulo, theme, children }: CabecalhoType) => {
+export const Cabecalho = ({
+  titulo,
+  theme,
+  children
+}: PropsWithChildren<CabecalhoType>) => {
   return (
     <PageHeader theme={theme}>
       <PageTitle theme={theme}>{titulo}</PageTitle>
