@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Animated } from "react-native";
-import { getTheme, useDarkMode } from "../Hooks/theme";
+import { useDarkMode } from "../Hooks/theme";
 import { getColors } from "./Colors";
 
 interface AnimatedProps {
@@ -9,7 +9,6 @@ interface AnimatedProps {
 
 export const AnimatedBackground = ({ children }: AnimatedProps) => {
   const [dark, _] = useDarkMode();
-  const theme = getTheme(dark);
   const [animation, setAnimation] = useState(new Animated.Value(0));
   const toLight = () => {
     Animated.timing(animation, {
