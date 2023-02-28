@@ -6,6 +6,7 @@ import { Button, TextInput } from "react-native-paper";
 import { useList } from "../../Hooks/useList";
 import { TextDefault } from "../../Layout/Typography";
 import { getColors } from "../../Layout/Colors";
+import { AnimatedView } from "../../Components/Animated/AnimatedView";
 
 const Home = () => {
   const [isDarkMode, _] = useDarkMode();
@@ -52,7 +53,7 @@ const Home = () => {
 
       {list.length > 0 &&
         list.map((item, index) => (
-          <View
+          <AnimatedView
             key={index}
             style={{
               flexDirection: "row",
@@ -64,7 +65,7 @@ const Home = () => {
             <Button onPress={() => listActions.removeItem(index)}>
               EXCLUIR
             </Button>
-          </View>
+          </AnimatedView>
         ))}
     </Container>
   );

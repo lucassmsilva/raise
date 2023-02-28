@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { View, Animated } from "react-native";
 import { Switch } from "react-native-paper";
 import { useDarkMode, getTheme } from "../../Hooks/theme";
-import { AnimatedBackground } from "../../Layout/AnimatedBackground";
+import { AnimatedBackground } from "../../Components/Animated/AnimatedBackground";
 import { TextDefault } from "../../Layout/Typography";
 import { Cabecalho, Container } from "../../Layout/Views";
 

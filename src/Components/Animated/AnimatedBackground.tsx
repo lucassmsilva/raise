@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Animated } from "react-native";
-import { useDarkMode } from "../Hooks/theme";
-import { getColors } from "./Colors";
+import { useDarkMode } from "../../Hooks/theme";
+import { getColors } from "../../Layout/Colors";
 
 interface AnimatedProps {
   children: React.ReactNode;
@@ -13,7 +13,7 @@ export const AnimatedBackground = ({ children }: AnimatedProps) => {
   const toLight = () => {
     Animated.timing(animation, {
       toValue: 1,
-      duration: 1000,
+      duration: 2000,
       useNativeDriver: false
     }).start();
   };
@@ -21,7 +21,7 @@ export const AnimatedBackground = ({ children }: AnimatedProps) => {
   const toDark = () => {
     Animated.timing(animation, {
       toValue: 0,
-      duration: 1000,
+      duration: 2000,
       useNativeDriver: false
     }).start();
   };
