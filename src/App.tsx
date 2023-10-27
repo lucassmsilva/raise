@@ -9,6 +9,7 @@ import Home from "./Pages/Home/Home";
 import Profile from "./Pages/Profile/Profile";
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 import { useDarkMode } from "./Hooks/theme";
+import { BlurView } from "@react-native-community/blur";
 
 function App(): JSX.Element {
   const [darkMode, _] = useDarkMode();
@@ -28,7 +29,10 @@ function App(): JSX.Element {
             tabBarStyle: { backgroundColor: "transparent", elevation: 0 }
           }}
           tabBar={props => (
-            <View
+            <BlurView
+            blurType="light"
+            blurAmount={1}
+            reducedTransparencyFallbackColor="white"
               style={{
                 position: "absolute",
                 bottom: 0,
@@ -37,8 +41,9 @@ function App(): JSX.Element {
                 backgroundColor: "transparent",
                 elevation: 0
               }}>
+                
               <BottomTabBar {...props} />
-            </View>
+            </BlurView>
           )}>
           <Tab.Screen
             name='Home'
